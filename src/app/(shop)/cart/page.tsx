@@ -1,11 +1,8 @@
+'use client'
+
 import React from "react";
+import Cart from "@/components/Cart";
 
-const Cart = () => {
-    return (
-        <div>
-            <h1>Cart</h1>
-        </div>
-    );
+export default function CartPage(){
+    return <Cart/>
 };
-
-export default Cart;

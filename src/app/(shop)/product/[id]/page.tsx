@@ -1,18 +1,14 @@
+'use client'
+
 import React from "react";
+import { useParams } from "next/navigation";
+import ProductInfo from "@/components/ProductInfo";
 
-type ProductDetailProps = {
-    params: {
-        id: string;
-    };
-};
-
-const ProductDetail = async ({ params }: ProductDetailProps) => {
+const ProductDetail = () => {
+    const params = useParams();
     const { id } = params;
-    return (
-        <div>
-            <h1>ProductDetail - {id}</h1>
-        </div>
-    );
+
+    return <ProductInfo productId={id.toString()} />;
 };
 
 export default ProductDetail;

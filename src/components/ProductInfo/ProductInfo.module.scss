@@ -1,0 +1,248 @@
+.product-info-container-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.productInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  margin-bottom: 50px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.productImage {
+  flex: 1;
+  max-width: 50%;
+}
+
+.image{
+  object-fit: scale-down;
+}
+
+.productDetails {
+  flex: 2;
+  padding-left: 20px;
+}
+
+.productDetails h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.productDetails .rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  color: #f39c12;
+  margin-bottom: 20px;
+}
+
+.productDetails .raitingText {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.productDetails .raitingFeedBack {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  font-size: 14px;
+  color: rgb(121, 116, 116);
+  margin-right: 7px;
+  margin-left: 7px;
+}
+
+.productDetails .summary {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.productDetails .price {
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2DA5F3;
+}
+
+.productDetails .price del {
+  font-size: medium;
+  color: #999;
+  margin-left: 10px;
+}
+
+.productDetails .discount {
+  color: black;
+  background-color: #EFD33D;
+  width: 30px;
+  height: 20px;
+  padding: 6px;
+  font-size: small;
+  font-weight: bold;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+
+.productActions {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.productActions .quantitySelector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px; 
+}
+
+.productActions .quantitySelector button {
+  width: 36px;
+  height: 36px;
+  background-color: #f8f8f8;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: none; 
+}
+
+.productActions .quantitySelector button:hover {
+  background-color: #e0e0e0;
+}
+
+.productActions .quantitySelector span {
+  width: 40px;
+  height: 36px;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  line-height: 36px;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+
+.productActions .actionButtons {
+  display: flex;
+  flex-wrap: wrap; 
+  margin-left: 20px;
+  gap: 1rem; 
+}
+
+.productActions .actionButtons button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 10px; 
+}
+
+.productActions .actionButtons button:first-of-type {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+.addToCartButton {
+  display: flex;
+  align-items: center;
+  background-color: #f39c12;
+}
+
+.buyNow button {
+  display: flex;
+  align-items: center;
+  color: #f39c12;
+  background-color: white !important;
+}
+
+.cart-icon {
+  margin-left: 8px;
+  filter: invert(100%);
+}
+
+.productAdditionalDetails div {
+  margin-bottom: 20PX;
+}
+
+.productAdditionalDetails {
+  display: flex;
+  flex-direction: row;
+  gap: 12rem;
+  .key {
+    color: gray;
+  }
+  .value {
+    font-weight: bold;
+  }
+  .availability-value {
+    color: green;
+  }
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .productInfoContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .productImage {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .product-details {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .productActions {
+    justify-content: center;
+  }
+
+  .productActions .actionButtons {
+    justify-content: center;
+  }
+}

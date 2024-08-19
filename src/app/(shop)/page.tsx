@@ -1,11 +1,43 @@
 import React from "react";
+import ProductList from "@/components/ProductList";
 
 const Homepage = async () => {
     return (
         <div>
-            <h1>Homepage</h1>
+            <ProductList />
         </div>
     );
 };
 
 export default Homepage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

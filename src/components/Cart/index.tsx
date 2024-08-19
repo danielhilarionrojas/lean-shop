@@ -54,7 +54,7 @@ export default function Cart() {
                 }
             });
     
-            if (response.status === 200) {
+            if (response.status) {
                 enqueueSnackbar('Purchase successful', {variant: 'success'});
                 clearCart();
             }

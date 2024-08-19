@@ -7,13 +7,10 @@ import styles from './Cart.module.scss';
 import xcircle from "@/assets/XCircle.png";
 import arrowLeft from "@/assets/ArrowLeft.png";
 import arrowRight from "@/assets/ArrowRight.png";
-import { useRouter } from "next/navigation";
 import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 export default function Cart() {
-    const router = useRouter();
     const products = useStore((state) => state.cart);
-    console.log('Products:', products);
 
     const clearCart = useStore((state) => state.clearCart)
     const removeAllRelatedProducts = useStore((state) => state.removeAllRelatedProducts);
@@ -50,30 +47,22 @@ export default function Cart() {
                 quantity: product.quantity
             }));
     
-            const response = await axios.post('https://pm3uf3zxsxf.us-east-1.awsapprunner.com/purchase-products', JSON.stringify(payload), {
+            const response = await axios.post('/api/purchase-products', payload, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'User-Agent': 'PostmanRuntime/7.40.0'
+                    'Accept': 'application/json'
                 }
             });
+    
             if (response.status === 200) {
                 enqueueSnackbar('Purchase successful', {variant: 'success'});
                 clearCart();
             }
-            console.log('Purchase successful', response.data);
         } catch (error: any) {
             console.error('Error making purchase', error.response ? error.response.data : error.message);
         }
     };
-
-    const handleCheckoutAndRedirect = async () => {
-        await handleCheckout();
-        enqueueSnackbar('Purchase successful', {variant: 'success'});
-        clearCart();
-        router.push('/');
-    };
-      
+    
     return (
         <div className={styles.cartContainer}>
             <SnackbarProvider />
@@ -161,7 +150,7 @@ export default function Cart() {
                             <span>Total</span>
                             <span>${(subTotal - (discountTotal ?? 0)).toFixed(2)} USD</span>
                         </div>
-                        <button onClick={handleCheckoutAndRedirect} className={styles.checkout}>Proceed to Checkout <Image src={arrowRight} alt="arrowLeft" width={20} height={20}/> </button>
+                        <button onClick={handleCheckout} className={styles.checkout}>Proceed to Checkout <Image src={arrowRight} alt="arrowLeft" width={20} height={20}/> </button>
                     </div>
                 </div>
             )}

@@ -11,6 +11,7 @@ import { calculateDiscountedPrice } from '@/utils/calc';
 import Link from 'next/link';
 import StarRating from '../StarRating';
 import ProductDetails from '../ProductDetails';
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 interface ProductInfoProps {
     productId: string | undefined;
@@ -39,18 +40,22 @@ export default function ProductInfo({ productId }: ProductInfoProps){
 
     const handleIncrement = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
+        enqueueSnackbar('Quantity updated', {variant: 'info'});
     };
 
     const handleDecrement = () => {
         setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+        enqueueSnackbar('Quantity updated', {variant: 'info'});
     };
 
     const handleAddToCart = () => {
         addToCart(product, quantity);
+        enqueueSnackbar('Product added to cart', {variant: 'success'});
     };
 
     return (
         <div className={styles.productInfoContainerWrapper}>
+            <SnackbarProvider maxSnack={3}/>
             <div className={styles.productInfoContainer}>
                 <div className={styles.productImage}>
                     <Image 

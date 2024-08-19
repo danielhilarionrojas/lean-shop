@@ -40,12 +40,10 @@ export default function ProductInfo({ productId }: ProductInfoProps){
 
     const handleIncrement = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
-        enqueueSnackbar('Quantity updated', {variant: 'info'});
     };
 
     const handleDecrement = () => {
         setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
-        enqueueSnackbar('Quantity updated', {variant: 'info'});
     };
 
     const handleAddToCart = () => {
